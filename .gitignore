@@ -1,0 +1,21 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+content/_extracted_*.txt
+.idea/
+.vscode/
+
+# Source dumps — site uses assets/ instead
+content/assets/
+content/projects/*.pdf
+
+# Unused large originals
+assets/portrait.jpeg
+assets/logos/**/*-shot.png
+assets/logos/**/*-source.png
+assets/logos/**/*-clearbit.png
+assets/logos/**/*-gico.png
+assets/logos/**/*-ico.png
+assets/logos/snake/tsinghua-commons.svg
+assets/logos/transnode/nsf-logo2.svg
