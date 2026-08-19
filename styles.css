@@ -421,6 +421,40 @@ section {
   padding-top: 0.25rem;
 }
 
+.edu-rows {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.edu-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.edu-logo {
+  display: block;
+  height: 2.7rem;
+  width: auto;
+  max-width: 2.7rem;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.edu-logo.wide {
+  height: 2.4rem;
+  max-width: 6.4rem;
+}
+
+.edu-logo.seal {
+  height: 2.9rem;
+  max-width: 2.9rem;
+}
+
+.fact-edu .label {
+  padding-top: 0.35rem;
+}
+
 .entry {
   position: relative;
   padding: 1.1rem 0 1.2rem;
@@ -623,6 +657,28 @@ section {
   border: 1px solid rgba(70, 50, 25, 0.18);
   background: #ddd2bc;
   min-height: 12rem;
+}
+
+.project-media-coming-soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 252, 245, 0.35),
+      rgba(255, 252, 245, 0.35) 10px,
+      rgba(221, 210, 188, 0.55) 10px,
+      rgba(221, 210, 188, 0.55) 20px
+    );
+}
+
+.coming-soon-label {
+  font-family: var(--font-hand);
+  font-size: 1.65rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
 }
 
 .project-media img,
