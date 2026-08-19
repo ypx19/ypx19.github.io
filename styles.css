@@ -128,11 +128,9 @@ img {
 @media (min-width: 980px) {
   .homepage-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-template-columns: 0.85fr 1.35fr;
     grid-template-areas:
-      "hero hero"
-      "about about"
+      "hero about"
       "experience projects"
       "skills skills"
       "publications publications"
@@ -143,8 +141,22 @@ img {
 
   #top { grid-area: hero; }
   #about { grid-area: about; }
-  #experience { grid-area: experience; }
-  #projects { grid-area: projects; }
+  #experience {
+    grid-area: experience;
+    border-top: 2px solid rgba(70, 50, 25, 0.22);
+    border-right: 2px solid rgba(70, 50, 25, 0.28);
+    padding-top: 0.5rem;
+    padding-right: 1.25rem;
+    margin-top: 0.25rem;
+  }
+
+  #projects {
+    grid-area: projects;
+    border-top: 2px solid rgba(70, 50, 25, 0.22);
+    padding-top: 0.5rem;
+    padding-left: 0.25rem;
+    margin-top: 0.25rem;
+  }
   #skills { grid-area: skills; }
   #publications { grid-area: publications; }
   #contact { grid-area: contact; }
@@ -213,7 +225,11 @@ img {
 }
 
 .hero {
-  padding: 1.2rem 0 2rem;
+  padding: 1.2rem 0 1rem;
+}
+
+.hero-facts {
+  margin-top: 1.2rem;
 }
 
 .hero-kicker {
@@ -334,6 +350,36 @@ section {
   transform: rotate(0.6deg);
 }
 
+.portrait-top {
+  margin: 0 0 1rem;
+  max-width: none;
+  transform: rotate(0.4deg);
+}
+
+.about-prose {
+  overflow: hidden;
+}
+
+.portrait-inline {
+  float: right;
+  width: min(55%, 28.5rem);
+  margin: 0.15rem 0 0.85rem 1.1rem;
+  padding: 0.35rem;
+  transform: rotate(0.5deg);
+  box-shadow: 0 4px 14px var(--shadow);
+}
+
+.portrait-inline img {
+  max-height: 25.5rem;
+  aspect-ratio: 11 / 9;
+}
+
+#about p {
+  margin: 0 0 0.75rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
 .portrait-frame img {
   width: 100%;
   height: auto;
@@ -377,12 +423,13 @@ section {
 
 .entry {
   position: relative;
-  padding: 1rem 0 1.15rem;
-  border-bottom: 1px solid rgba(70, 50, 25, 0.12);
+  padding: 1.1rem 0 1.2rem;
+  border-bottom: 2px solid rgba(70, 50, 25, 0.24);
 }
 
 .entry:last-child {
   border-bottom: 0;
+  padding-bottom: 0.4rem;
 }
 
 .entry-top {
@@ -540,11 +587,12 @@ section {
 .project-grid {
   display: grid;
   gap: 1.1rem;
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 720px) {
   .project-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
@@ -561,15 +609,12 @@ section {
 }
 
 .project.featured {
-  grid-column: 1 / -1;
+  grid-column: 1;
 }
 
 @media (min-width: 720px) {
   .project.featured {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 0.9rem;
-    align-items: stretch;
+    display: block;
   }
 }
 
@@ -577,24 +622,22 @@ section {
   overflow: hidden;
   border: 1px solid rgba(70, 50, 25, 0.18);
   background: #ddd2bc;
-  min-height: 11rem;
+  min-height: 12rem;
 }
 
 .project-media img,
 .project-media video {
   width: 100%;
-  height: 100%;
-  min-height: 11rem;
-  object-fit: cover;
+  height: auto;
+  min-height: 12rem;
+  max-height: 22rem;
+  object-fit: contain;
+  background: #ddd2bc;
   filter: sepia(0.08) contrast(1.03);
 }
 
 .project-media video {
-  width: 100%;
-  height: 100%;
-  min-height: 11rem;
-  object-fit: cover;
-  background: #ddd2bc;
+  display: block;
 }
 
 .project-media iframe {
@@ -628,8 +671,14 @@ section {
   min-height: 14rem;
 }
 
+.project-media-pair img,
 .project-media-pair video {
+  width: 100%;
+  height: auto;
   min-height: 14rem;
+  max-height: 22rem;
+  object-fit: contain;
+  background: #ddd2bc;
 }
 
 .project-body {
