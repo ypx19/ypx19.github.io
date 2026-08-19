@@ -14,5 +14,5 @@ RL study of three-finger in-hand rod rotation under tip constraints. Continuous 
 
 ## Media
 - `assets/projects/rod-rotation-screwdriver.mp4` — MuJoCo cinematic (left half)
-- `assets/projects/rod-rotation-isaacgym.mp4` — IsaacGym env demo (right half)
+- `assets/projects/rod-rotation-isaacgym.mp4` — IsaacGym parallel cinematic (right half)
 - Full gallery: `allegro_rod_mvp/docs/demo.html`
