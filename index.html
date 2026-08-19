@@ -36,6 +36,7 @@
     </nav>
 
     <main id="main" class="notebook">
+      <div class="homepage-grid">
       <header id="top" class="hero reveal">
         <p class="meta hero-kicker">Lab notebook · Vol. 01</p>
         <h1>
@@ -398,46 +399,83 @@
 
           <article class="project featured">
             <div class="project-media">
-              <img src="assets/projects/gello.jpeg" alt="Gello teleoperation hardware setup" loading="lazy" />
+              <video controls playsinline preload="metadata" poster="assets/projects/gello.jpeg">
+                <source src="assets/projects/gello-demo.mp4" type="video/mp4" />
+              </video>
             </div>
             <div class="project-body">
               <div class="tags"><span class="tag">Teleoperation</span><span class="tag">Hardware</span><span class="tag">Data collection</span></div>
               <h3>Gello Robot for Teleoperation</h3>
               <p>Low-cost Gello-style teleoperation device integrating motors, brackets, 3D-printed structure, and calibration for human demonstration collection toward imitation learning.</p>
+              <div class="links">
+                <a href="assets/projects/gello-demo.mp4" target="_blank" rel="noopener">Gello demo MP4 ↗</a>
+                <a href="https://drive.google.com/file/d/12g0imz-AvfGUAuDvkqKOVOJ90fx9yTMV/view" target="_blank" rel="noopener">Drive ↗</a>
+              </div>
             </div>
           </article>
 
           <article class="project">
             <div class="project-media">
-              <img src="assets/projects/self-balancing.png" alt="Self-balancing robot" loading="lazy" />
+              <video controls playsinline preload="metadata" poster="assets/projects/self-balancing.png">
+                <source src="assets/projects/self-balancing-demo.mp4" type="video/mp4" />
+              </video>
             </div>
             <div class="project-body">
               <div class="tags"><span class="tag">Embedded</span><span class="tag">PID</span><span class="tag">Control</span></div>
               <h3>Self-Balancing Robot</h3>
               <p>Arduino + IMU + encoder dual-loop PID balancing from scratch — ISR-driven sensing and motor control with fixed-time vs fixed-pulse velocity estimation.</p>
+              <div class="links">
+                <a href="assets/projects/self-balancing-demo.mp4" target="_blank" rel="noopener">Demo MP4 ↗</a>
+              </div>
             </div>
           </article>
 
           <article class="project">
             <div class="project-media">
-              <img src="assets/projects/interactive-grasp.png" alt="Interactive grasping IEEE CYBER poster" loading="lazy" />
+              <video controls playsinline preload="metadata" poster="assets/projects/interactive-grasp.png">
+                <source src="assets/projects/interactive-grasp-demo.mp4" type="video/mp4" />
+              </video>
             </div>
             <div class="project-body">
               <div class="tags"><span class="tag">ROS</span><span class="tag">Manipulation</span><span class="tag">Best Poster</span></div>
               <h3>Interactive Grasping in Crowds</h3>
               <p>Closed-loop retrieval in cluttered shelves — perception, interactive planning, and grasp execution. IEEE CYBER 2024 Best Poster.</p>
-              <div class="links"><a href="https://ieeexplore.ieee.org/document/10749016/" target="_blank" rel="noopener">IEEE paper ↗</a></div>
+              <div class="links">
+                <a href="https://ieeexplore.ieee.org/document/10749016/" target="_blank" rel="noopener">IEEE paper ↗</a>
+                <a href="assets/projects/interactive-grasp-demo.mp4" target="_blank" rel="noopener">Demo MP4 ↗</a>
+              </div>
             </div>
           </article>
 
           <article class="project">
             <div class="project-media">
-              <img src="assets/projects/lumen.jpeg" alt="AI earphone hardware prototype" loading="lazy" />
+              <video controls playsinline preload="metadata" poster="assets/projects/humanoid-walking.png">
+                <source src="assets/projects/humanoid-walking-demo.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="project-body">
+              <div class="tags"><span class="tag">MuJoCo</span><span class="tag">Locomotion</span></div>
+              <h3>Humanoid Walking in MuJoCo</h3>
+              <p>Studying balance, contact forces, and whole-body control strategies for stable humanoid locomotion in simulation.</p>
+              <div class="links">
+                <a href="assets/projects/humanoid-walking-demo.mp4" target="_blank" rel="noopener">Demo MP4 ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-media">
+              <video controls playsinline preload="metadata" poster="assets/projects/lumen.jpeg">
+                <source src="assets/projects/lumen-demo.mp4" type="video/mp4" />
+              </video>
             </div>
             <div class="project-body">
               <div class="tags"><span class="tag">Hackathon</span><span class="tag">ESP32</span><span class="tag">LLM</span><span class="tag">Advx25</span></div>
               <h3>AI-Powered Earphone Prototype</h3>
               <p>Three-day Advx25 build: camera, Bluetooth, speaker, and LLM connectivity for vision-aware conversational assistance — hardware–software end-to-end.</p>
+              <div class="links">
+                <a href="assets/projects/lumen-demo.mp4" target="_blank" rel="noopener">Demo MP4 ↗</a>
+              </div>
               <div class="logo-row" style="margin-top:0.35rem">
                 <div class="logo-chip">
                   <img class="icon" src="assets/logos/adventurex/advx25.png" alt="" />
@@ -449,23 +487,33 @@
 
           <article class="project">
             <div class="project-media">
-              <img src="assets/projects/siege-engine.png" alt="Siege competition projectile launcher robot" loading="lazy" />
+              <video controls playsinline preload="metadata" poster="assets/projects/siege-engine.png">
+                <source src="assets/projects/siege-engine-demo.mp4" type="video/mp4" />
+              </video>
             </div>
             <div class="project-body">
               <div class="tags"><span class="tag">Embedded</span><span class="tag">Mech</span><span class="tag">3rd Prize</span></div>
               <h3>Dual-Friction-Wheel Launcher</h3>
               <p>Remote-control siege robot with dual friction-wheel launcher — chassis, transmission, motor control, and power. Tsinghua SIEGE 3rd Prize.</p>
+              <div class="links">
+                <a href="assets/projects/siege-engine-demo.mp4" target="_blank" rel="noopener">Demo MP4 ↗</a>
+              </div>
             </div>
           </article>
 
           <article class="project">
             <div class="project-media">
-              <img src="assets/projects/dexterous-hand.png" alt="Optimization-driven robotic hand design" loading="lazy" />
+              <video controls playsinline preload="metadata" poster="assets/projects/dexterous-hand.png">
+                <source src="assets/projects/dexterous-hand-demo.mp4" type="video/mp4" />
+              </video>
             </div>
             <div class="project-body">
               <div class="tags"><span class="tag">Warp</span><span class="tag">Optimization</span><span class="tag">Sim2Real</span></div>
               <h3>Optimization-Driven Robotic Hand</h3>
               <p>Neural design search for printable dexterous hands; SDF collision objectives to make physical prototypes safer for teleoperation.</p>
+              <div class="links">
+                <a href="assets/projects/dexterous-hand-demo.mp4" target="_blank" rel="noopener">Demo MP4 ↗</a>
+              </div>
             </div>
           </article>
         </div>
@@ -550,6 +598,7 @@
         <span>© <span id="year">2026</span> Peixing You</span>
         <span class="hand" style="text-transform:none; letter-spacing:0; font-size:1.05rem; color:var(--ink-soft)">written in ink, deployed as html</span>
       </footer>
+      </div>
     </main>
   </div>
 
