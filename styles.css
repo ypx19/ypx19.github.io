@@ -84,7 +84,7 @@ img {
 .page {
   position: relative;
   z-index: 1;
-  width: min(var(--max), calc(100% - 2rem));
+  width: calc(100% - 2rem);
   margin: 1.5rem auto 3.5rem;
 }
 
@@ -132,8 +132,8 @@ img {
     grid-template-columns: 1.05fr 0.95fr;
     grid-template-areas:
       "hero projects"
-      "about projects"
       "experience projects"
+      "about about"
       "skills skills"
       "publications publications"
       "contact contact"
