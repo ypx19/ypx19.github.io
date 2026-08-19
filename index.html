@@ -49,9 +49,30 @@
         </p>
         <div class="cta-row">
           <a class="btn btn-ink" href="#experience">Read experience</a>
-          <a class="btn" href="#projects">Browse experiments</a>
           <a class="btn" href="mailto:peyou@ucsd.edu">Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/peixing-you-64a577300" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/ypx19" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://scholar.google.com/scholar?q=Peixing+You+SNAKE" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="btn" href="#projects">Browse experiments</a>
         </div>
+        <ul class="facts hero-facts">
+          <li>
+            <span class="label">Education</span>
+            <span>MS Robotics, UC San Diego (GPA 3.8) · BS MSE + BS CS, Tsinghua</span>
+          </li>
+          <li>
+            <span class="label">Focus</span>
+            <span>Manipulation, control, LLM agents, full-stack AI products</span>
+          </li>
+          <li>
+            <span class="label">Highlight</span>
+            <span>NeurIPS 2022 Spotlight · IEEE CYBER 2024 Best Poster</span>
+          </li>
+          <li>
+            <span class="label">Based in</span>
+            <span>San Diego, CA</span>
+          </li>
+        </ul>
       </header>
 
       <section id="about" class="reveal">
@@ -59,44 +80,22 @@
           <h2>About</h2>
           <span class="meta">Field notes</span>
         </div>
-        <div class="about-grid">
-          <div>
-            <p>
-              I’m a robotics graduate student advised by
-              <a href="https://xiaolonw.github.io/" target="_blank" rel="noopener">Prof. Xiaolong Wang</a>
-              at UC San Diego, with dual bachelor’s
-              degrees in Materials Science and Computer Science from Tsinghua University. My work sits at the seam of
-              embodiment and intelligence: optimizing robot hardware for the real world, shipping LLM backends that
-              survive long-context failure modes, and turning early product ideas into usable systems.
-            </p>
-            <p>
-              Lately that means contributing to <a href="https://www.transnode.ai/" target="_blank" rel="noopener">Transnode AI</a>’s
-              AuthenlyUSA verification product, hardening the Agent Arena simulation stack, and prototyping low-cost
-              dexterous hands and teleoperation platforms in the lab.
-            </p>
-            <ul class="facts">
-              <li>
-                <span class="label">Education</span>
-                <span>MS Robotics, UC San Diego (GPA 3.8) · BS MSE + BS CS, Tsinghua</span>
-              </li>
-              <li>
-                <span class="label">Focus</span>
-                <span>Manipulation, control, LLM agents, full-stack AI products</span>
-              </li>
-              <li>
-                <span class="label">Highlight</span>
-                <span>NeurIPS 2022 Spotlight · IEEE CYBER 2024 Best Poster</span>
-              </li>
-              <li>
-                <span class="label">Based in</span>
-                <span>San Diego, CA</span>
-              </li>
-            </ul>
-          </div>
-          <figure class="portrait-frame">
+        <div class="about-prose">
+          <figure class="portrait-frame portrait-inline">
             <img src="assets/portrait-web.jpeg" alt="Portrait of Peixing You" width="1100" height="900" />
-            <figcaption class="portrait-caption">margin doodle: keep the ink moving</figcaption>
           </figure>
+          <p>
+            I’m a robotics graduate student advised by
+            <a href="https://xiaolonw.github.io/" target="_blank" rel="noopener">Prof. Xiaolong Wang</a>
+            at UC San Diego, with dual bachelor’s degrees in Materials Science and Computer Science from Tsinghua University.
+            My work sits at the seam of embodiment and intelligence: optimizing robot hardware for the real world, shipping
+            LLM backends that survive long-context failure modes, and turning early product ideas into usable systems.
+          </p>
+          <p>
+            Lately that means contributing to <a href="https://www.transnode.ai/" target="_blank" rel="noopener">Transnode AI</a>’s
+            AuthenlyUSA verification product, hardening the Agent Arena simulation stack, and prototyping low-cost dexterous
+            hands and teleoperation platforms in the lab.
+          </p>
         </div>
       </section>
 
@@ -389,7 +388,7 @@
             <div class="project-body">
               <div class="tags"><span class="tag">MuJoCo</span><span class="tag">IsaacGym</span><span class="tag">RL</span><span class="tag">Manipulation</span></div>
               <h3>Rod Rotation MVP</h3>
-              <p>Three-finger axial twisting under tip constraints — DexScrew-style PPO with continuous mass curriculum (s=400→1). Curriculum reaches 100% ω-hold @ s=1 vs 20% without. Front clips: MuJoCo cinematic + IsaacGym parallel cinematic.</p>
+              <p>RL-trained three-finger in-hand rotation under tip constraints — a stable twisting gait built for future dexterous tool use, including screwdriving and similar manipulation tasks.</p>
               <div class="links">
                 <a href="https://ypx19.github.io/allegro_rod_mvp/demo.html" target="_blank" rel="noopener">Interactive demo ↗</a>
                 <a href="https://github.com/ypx19/allegro_rod_mvp" target="_blank" rel="noopener">GitHub ↗</a>
@@ -399,7 +398,7 @@
 
           <article class="project featured">
             <div class="project-media">
-              <video controls playsinline preload="metadata" poster="assets/projects/gello.jpeg">
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/gello.jpeg">
                 <source src="assets/projects/gello-demo.mp4" type="video/mp4" />
               </video>
             </div>
@@ -414,9 +413,10 @@
             </div>
           </article>
 
-          <article class="project">
-            <div class="project-media">
-              <video controls playsinline preload="metadata" poster="assets/projects/self-balancing.png">
+          <article class="project featured">
+            <div class="project-media project-media-pair">
+              <img src="assets/projects/self-balancing-pipeline.png" alt="Self-balancing robot cascaded PID control architecture" loading="lazy" />
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/self-balancing.png">
                 <source src="assets/projects/self-balancing-demo.mp4" type="video/mp4" />
               </video>
             </div>
