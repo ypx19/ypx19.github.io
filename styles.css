@@ -84,14 +84,13 @@ img {
 .page {
   position: relative;
   z-index: 1;
-  width: calc(100% - 2rem);
-  margin: 1.5rem auto 3.5rem;
+  width: calc(100% - 1rem);
+  margin: 0.75rem auto 2rem;
 }
 
 .notebook {
   position: relative;
   background:
-    linear-gradient(90deg, transparent 0 2.6rem, var(--margin) 2.6rem, var(--margin) calc(2.6rem + 1.5px), transparent calc(2.6rem + 1.5px)),
     repeating-linear-gradient(
       transparent,
       transparent calc(1.85rem - 1px),
@@ -104,7 +103,7 @@ img {
     0 1px 0 rgba(255, 255, 255, 0.55) inset,
     0 18px 50px var(--shadow),
     0 2px 0 rgba(90, 60, 20, 0.08);
-  padding: 1.4rem 1.5rem 2.4rem 3.35rem;
+  padding: 1.2rem 1.5rem 2rem 1.5rem;
   border-radius: 2px 10px 10px 2px;
 }
 
@@ -129,49 +128,27 @@ img {
 @media (min-width: 980px) {
   .homepage-grid {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto;
     grid-template-areas:
-      "hero projects"
-      "experience projects"
+      "hero hero"
       "about about"
+      "experience projects"
       "skills skills"
       "publications publications"
       "contact contact"
       "footer footer";
-    column-gap: 1.2rem;
+    column-gap: 1.4rem;
   }
 
-  #top {
-    grid-area: hero;
-  }
-
-  #about {
-    grid-area: about;
-  }
-
-  #experience {
-    grid-area: experience;
-  }
-
-  #projects {
-    grid-area: projects;
-  }
-
-  #skills {
-    grid-area: skills;
-  }
-
-  #publications {
-    grid-area: publications;
-  }
-
-  #contact {
-    grid-area: contact;
-  }
-
-  .site-footer {
-    grid-area: footer;
-  }
+  #top { grid-area: hero; }
+  #about { grid-area: about; }
+  #experience { grid-area: experience; }
+  #projects { grid-area: projects; }
+  #skills { grid-area: skills; }
+  #publications { grid-area: publications; }
+  #contact { grid-area: contact; }
+  .site-footer { grid-area: footer; }
 }
 
 .site-nav {
@@ -772,21 +749,12 @@ section {
 
 @media (max-width: 640px) {
   .page {
-    width: min(100% - 1rem, var(--max));
-    margin-top: 0.75rem;
+    width: calc(100% - 0.5rem);
+    margin-top: 0.5rem;
   }
 
   .notebook {
-    padding: 1rem 1rem 1.8rem 2.5rem;
-    background:
-      linear-gradient(90deg, transparent 0 1.7rem, var(--margin) 1.7rem, var(--margin) calc(1.7rem + 1.5px), transparent calc(1.7rem + 1.5px)),
-      repeating-linear-gradient(
-        transparent,
-        transparent calc(1.75rem - 1px),
-        var(--rule) calc(1.75rem - 1px),
-        var(--rule) 1.75rem
-      ),
-      linear-gradient(180deg, #f7efdc, var(--paper));
+    padding: 0.75rem 0.75rem 1.5rem 0.75rem;
   }
 
   .facts li {
