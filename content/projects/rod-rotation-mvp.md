@@ -13,6 +13,6 @@ RL study of three-finger in-hand rod rotation under tip constraints. Continuous 
 - Documents assist cliffs, contact-reward bugs, and revolute vs tip-connect transfer
 
 ## Media
-- `assets/projects/rod-rotation-screwdriver.mp4` — cinematic C0 screwdriver view (`20260818-2345`)
-- `assets/projects/rod-rotation-oval.mp4` — cinematic C0 oval orbit (`20260818-2350`)
+- `assets/projects/rod-rotation-screwdriver.mp4` — MuJoCo cinematic (left half)
+- `assets/projects/rod-rotation-isaacgym.mp4` — IsaacGym env demo (right half)
 - Full gallery: `allegro_rod_mvp/docs/demo.html`
