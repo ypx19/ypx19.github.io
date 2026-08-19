@@ -563,7 +563,7 @@ section {
 @media (min-width: 720px) {
   .project-demo {
     display: grid;
-    grid-template-columns: 1.35fr 1fr;
+    grid-template-columns: 1fr;
     gap: 0.9rem;
     align-items: stretch;
   }
@@ -571,6 +571,17 @@ section {
 
 .project-media-wide {
   min-height: 13rem;
+}
+
+.project-media-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+  min-height: 14rem;
+}
+
+.project-media-pair video {
+  min-height: 14rem;
 }
 
 .project-body {

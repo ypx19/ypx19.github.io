@@ -376,6 +376,26 @@
           <span class="meta">Selected experiments</span>
         </div>
         <div class="project-grid">
+          <article class="project featured project-demo">
+            <div class="project-media project-media-pair">
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/rod-rotation-poster.png" aria-label="Cinematic fly-in of three-finger rod rotation, screwdriver view">
+                <source src="assets/projects/rod-rotation-screwdriver.mp4" type="video/mp4" />
+              </video>
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/rod-rotation-poster.png" aria-label="Cinematic fly-in of three-finger rod rotation, oval orbit view">
+                <source src="assets/projects/rod-rotation-oval.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="project-body">
+              <div class="tags"><span class="tag">MuJoCo</span><span class="tag">RL</span><span class="tag">Manipulation</span></div>
+              <h3>Rod Rotation MVP</h3>
+              <p>Three-finger axial twisting under tip constraints — DexScrew-style PPO with continuous mass curriculum (s=400→1). Curriculum reaches 100% ω-hold @ s=1 vs 20% without. Front clips: cinematic C0 revolute policy (~5000° spin).</p>
+              <div class="links">
+                <a href="https://ypx19.github.io/allegro_rod_mvp/demo.html" target="_blank" rel="noopener">Interactive demo ↗</a>
+                <a href="https://github.com/ypx19/allegro_rod_mvp" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
           <article class="project featured">
             <div class="project-media">
               <img src="assets/projects/gello.jpeg" alt="Gello teleoperation hardware setup" loading="lazy" />
@@ -407,39 +427,6 @@
               <h3>Interactive Grasping in Crowds</h3>
               <p>Closed-loop retrieval in cluttered shelves — perception, interactive planning, and grasp execution. IEEE CYBER 2024 Best Poster.</p>
               <div class="links"><a href="https://ieeexplore.ieee.org/document/10749016/" target="_blank" rel="noopener">IEEE paper ↗</a></div>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project-media">
-              <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/rod-rotation-poster.png" aria-label="Rod rotation policy trained with mass curriculum">
-                <source src="assets/projects/rod-rotation-curriculum.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="project-body">
-              <div class="tags"><span class="tag">MuJoCo</span><span class="tag">RL</span><span class="tag">Manipulation</span></div>
-              <h3>Rod Rotation MVP</h3>
-              <p>Three-finger axial twisting under tip constraints — DexScrew-style PPO with continuous mass curriculum (s=400→1). Curriculum reaches 100% ω-hold @ s=1 vs 20% without.</p>
-              <div class="links">
-                <a href="https://ypx19.github.io/allegro_rod_mvp/demo.html" target="_blank" rel="noopener">Interactive demo ↗</a>
-                <a href="https://github.com/ypx19/allegro_rod_mvp" target="_blank" rel="noopener">GitHub ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project project-demo">
-            <div class="project-media project-media-wide">
-              <video controls playsinline preload="metadata" poster="assets/projects/rod-rotation-poster.png" aria-label="Side-by-side comparison: without curriculum vs with curriculum">
-                <source src="assets/projects/rod-rotation-comparison.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="project-body">
-              <div class="tags"><span class="tag">Ablation</span><span class="tag">Curriculum</span></div>
-              <h3>Mass curriculum ablation</h3>
-              <p>Matched-seed eval @ s=1: training only on light rod loses the sustained twist hold; annealing from a heavy rod keeps it. Clip from the research demo gallery.</p>
-              <div class="links">
-                <a href="https://ypx19.github.io/allegro_rod_mvp/demo.html#stages" target="_blank" rel="noopener">Full ablation write-up ↗</a>
-              </div>
             </div>
           </article>
 
