@@ -434,21 +434,21 @@ section {
 
 .edu-logo {
   display: block;
-  height: 0.9rem;
+  height: 1.8rem;
   width: auto;
-  max-width: 0.9rem;
+  max-width: 1.8rem;
   object-fit: contain;
   flex: 0 0 auto;
 }
 
 .edu-logo.wide {
-  height: 0.8rem;
-  max-width: 2.13rem;
+  height: 1.6rem;
+  max-width: 4.26rem;
 }
 
 .edu-logo.seal {
-  height: 0.97rem;
-  max-width: 0.97rem;
+  height: 1.95rem;
+  max-width: 1.95rem;
 }
 
 .fact-edu .label {
