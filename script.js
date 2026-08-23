@@ -41,4 +41,45 @@
   requestAnimationFrame(() => {
     document.querySelector(".notebook")?.classList.add("ready");
   });
+
+  const demos = document.querySelectorAll(".project-media video");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const playDemo = (video) => {
+    if (reduceMotion) {
+      video.pause();
+      return;
+    }
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    const play = video.play();
+    if (play && typeof play.catch === "function") play.catch(() => {});
+  };
+
+  if (reduceMotion) {
+    demos.forEach((video) => video.pause());
+  } else if ("IntersectionObserver" in window) {
+    const demoIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) playDemo(video);
+          else video.pause();
+        });
+      },
+      { threshold: 0.2 }
+    );
+    demos.forEach((video) => {
+      video.addEventListener("loadeddata", () => {
+        if (!video.paused) return;
+        if (video.getBoundingClientRect().bottom > 0 && video.getBoundingClientRect().top < window.innerHeight) {
+          playDemo(video);
+        }
+      });
+      demoIo.observe(video);
+    });
+  } else {
+    demos.forEach(playDemo);
+  }
 })();
