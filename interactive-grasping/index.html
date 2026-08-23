@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Object Retrieval on the Shelf</title>
+  <meta name="description" content="An adapter for interactive shelf retrieval: segment, T-Match, grasp, or push until a wrap grasp is feasible." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#demo">Demo</a>
+      <a href="#pipeline">Pipeline</a>
+      <a href="#impl">Implementation</a>
+      <a href="#experiments">Experiments</a>
+      <a href="#award">Award</a>
+      <a href="#cite">Cite</a>
+      <a href="https://ypx19.github.io/" class="nav-home">Peixing You</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="demo">
+      <p class="kicker">IEEE-CYBER 2024 · Finalist, Best Poster Award · Copenhagen</p>
+      <h1>An Adapter for Interactive Object Retrieval on the Shelf</h1>
+      <p class="authors">
+        Hang Li, <a href="https://ypx19.github.io/">Peixing You</a>, Guokang Wang, Bin Fang,
+        Jianqin Yin, Huaping Liu, Di Guo
+      </p>
+      <p class="lede">
+        Dense books on a working deck leave no wrap-grasp envelope. The adapter locks a target with
+        <em>T-Match</em>, queries an off-the-shelf grasp planner, and otherwise pushes a depth-filtered
+        neighbor into the shelf until the target is graspable.
+      </p>
+      <div class="hero-frame">
+        <span class="speed-badge">4×</span>
+        <video
+          id="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="media/hero.jpg"
+          aria-label="One-take shelf retrieval demo played at four times speed"
+        >
+          <source src="media/hero_4x.mp4" type="video/mp4" />
+        </video>
+        <p class="hero-caption">
+          Front demo: one-take MuJoCo retrieval across four looks (library, office, warehouse, gallery),
+          encoded at <strong>4×</strong>. Perception PiP marks the working-row target and push point;
+          the arm orbits 180° while pushing then lifting.
+        </p>
+      </div>
+    </section>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Retrieving a designated book from a crowded shelf is not a single-shot grasp. Neighbors close
+        the wrap envelope, so a planner that is competent in free space still returns no feasible
+        grasp. We implement the paper’s adapter as a closed loop over RGB-D: instance masks, a
+        persistent target identity (T-Match), a grasp planner <code>Grsp(·)</code> on the target cloud,
+        constrained approach evaluation, and a depth-filtered push that opens space beside the target
+        rather than cycling the same object.
+      </p>
+      <p>
+        The MuJoCo environment is a floor-standing bookcase. Only the bottom deck is interactive;
+        upper decks are static fill. A dedicated eye camera and a 2D projection filter keep perception
+        on that working row, which is what the front demo’s PiP shows.
+      </p>
+    </section>
+
+    <section id="pipeline">
+      <h2>Full pipeline</h2>
+      <p class="section-lead">
+        One interaction is one pass around this loop. Grasp succeeds only after the working row has
+        been opened; otherwise the push branch runs and the loop repeats.
+      </p>
+      <figure class="pipeline-figure">
+        <img
+          src="media/pipeline.jpg"
+          alt="System pipeline: RGB-D to segmentation, T-Match, off-the-shelf grasp planning, depth-aware push, and closed-loop re-observation"
+        />
+        <figcaption>
+          Paper pipeline. (A) Plug-and-play instance segmentation. (B) T-Match with MSE against a
+          target buffer. (C) Any off-the-shelf grasp planner plus orientation constraints. (D)
+          Depth-aware push of the nearest neighbor. (E) Re-observe until the target is graspable.
+        </figcaption>
+      </figure>
+      <ol class="pipeline" id="pipeline-list">
+        <li class="is-active" data-step="0">
+          <span class="step-idx">01</span>
+          <h3>RGB-D observe</h3>
+          <p>Eye camera on the working deck. Depth + pinhole intrinsics for backprojection.</p>
+        </li>
+        <li data-step="1">
+          <span class="step-idx">02</span>
+          <h3>Segment</h3>
+          <p>Detectron2 Mask R-CNN FPN (demo) or color heuristic. Keep masks that overlap interactive books.</p>
+        </li>
+        <li data-step="2">
+          <span class="step-idx">03</span>
+          <h3>T-Match</h3>
+          <p>Lock the red designated spine once; later steps MSE-match mask + appearance crop.</p>
+        </li>
+        <li data-step="3">
+          <span class="step-idx">04</span>
+          <h3>Grsp(·)</h3>
+          <p>Target mask → camera-frame cloud → grasp candidates (AnyGrasp hook or heuristic).</p>
+        </li>
+        <li data-step="4">
+          <span class="step-idx">05</span>
+          <h3>Evaluate</h3>
+          <p>Quality score plus geodesic proximity to shelf-axis default approaches.</p>
+        </li>
+        <li data-step="5">
+          <span class="step-idx">06</span>
+          <h3>Push or lift</h3>
+          <p>If not graspable: nearest neighbor, depth filter, inward + lateral shove. Else wrap-grasp.</p>
+        </li>
+      </ol>
+      <article class="pipeline-detail" id="pipeline-detail"></article>
+    </section>
+
+    <section id="impl">
+      <h2>Implementation</h2>
+      <p class="section-lead">
+        Package <code>interactive_grasping</code> (src layout). The adapter is backend-agnostic;
+        MuJoCo is the visual environment used on this page.
+      </p>
+      <div class="impl-grid">
+        <article>
+          <h3><code>adapter.py</code></h3>
+          <p>
+            <code>InteractiveObjectRetrievalAdapter.run_once</code> is the closed loop. Observation
+            → segment → optional working-row filter → T-Match → cloud → planner → constrained
+            score. A passing grasp calls <code>execute_grasp</code>; otherwise
+            <code>DepthFilteredPushStrategy</code> emits a <code>PushAction</code>.
+          </p>
+        </article>
+        <article>
+          <h3><code>target_match.py</code></h3>
+          <p>
+            First frame: nearest mean RGB to the designated red spine. Later frames: min MSE vs a
+            buffer of target masks, plus weighted MSE of a 32×16 spine crop so identity survives
+            after neighbors move.
+          </p>
+        </article>
+        <article>
+          <h3><code>push_strategy.py</code></h3>
+          <p>
+            Nearest 2D centroid to the target, excluding the target. Depth filter drops objects that
+            receded from the last push (already in the shelf). Contact point is the mask centroid
+            backprojected to world; direction is inward (−Y) plus a lateral component away from the target.
+          </p>
+        </article>
+        <article>
+          <h3><code>grasp_evaluation.py</code></h3>
+          <p>
+            Sample default orientations about the shelf width axis (±45°, 80 samples). Score
+            <code>1 − d<sub>geo</sub>/π</code>. Candidates below
+            <code>constrained_score_threshold</code> are treated as not yet graspable.
+          </p>
+        </article>
+        <article>
+          <h3><code>mujoco_env.py</code></h3>
+          <p>
+            UR5-style 6-DoF + parallel jaw, Jacobian IK. Floor-standing case; working deck at
+            0.162&nbsp;m. Interactive books are free-jointed; deco books are welded. Eye camera hides
+            the robot (geom group 3). Demo camera orbits 180° around the arm.
+          </p>
+        </article>
+        <article>
+          <h3>Perception backends</h3>
+          <p>
+            <code>Detectron2FpnSegmentationBackend</code> uses COCO Mask R-CNN R50-FPN, filtered to
+            class <code>book</code>, then NMS. Heuristic color blobs exist for tests. Grasp planner
+            default is heuristic; <code>AnygraspBackend</code> takes a <code>planner_fn</code> hook.
+          </p>
+        </article>
+      </div>
+      <pre class="code-block"><code>obs = env.get_observation()
+parts = segment(obs.rgb)                 # Detectron2 or heuristic
+parts = env.filter_interaction_masks(obs, parts)
+k = tmatch.select_and_update(parts, rgb=obs.rgb)
+cloud = mask_to_point_cloud(obs, parts[k].mask)
+cands = planner.plan(cloud, parts[k].mask)
+grasp = select_best_constrained(cands)
+if grasp:
+    env.execute_grasp(grasp.pose)
+else:
+    env.push(push_strategy.compute_push_action(...))</code></pre>
+    </section>
+
+    <section id="experiments">
+      <h2>Experiments</h2>
+      <p class="section-lead">
+        Suites live in <code>scripts/run_experiments.py</code>. Numbers below are from that script
+        on the MuJoCo bookcase with heuristic segmentation (so the table is reproducible without a
+        GPU). The hero video uses Detectron2. Grasp is admitted only after three opening pushes.
+      </p>
+      <p id="exp-status" class="muted">Loading experiment JSON…</p>
+
+      <h3>Scene generalization</h3>
+      <p>Same adapter, four named looks, 12 interactive books, six seeds each.</p>
+      <div class="chart" id="chart-scene"></div>
+      <div class="table-wrap" id="table-scene"></div>
+
+      <h3>Crowd density</h3>
+      <p>Library look. Success should hold as the working row fills, at the cost of the required opening pushes.</p>
+      <div class="chart" id="chart-crowd"></div>
+      <div class="table-wrap" id="table-crowd"></div>
+
+      <h3>Ablations</h3>
+      <p>
+        <strong>no_push</strong> is the load-bearing ablation: without opening the row, wrap grasp is
+        refused (0% here). <strong>no_tmatch</strong> and <strong>no_mask_filter</strong> still succeed
+        under heuristic blobs because the simulator grasps the nearest interactive book. Those two
+        knobs matter for Detectron2 PiP identity (hero demo), not for heuristic success rate.
+      </p>
+      <div class="chart" id="chart-ablate"></div>
+      <div class="table-wrap" id="table-ablate"></div>
+
+      <h3>Adapter loop (toy)</h3>
+      <p>Physics-free RGB rectangles, 20 seeds. Checks that the paper loop itself, not MuJoCo contact, is what needs the pushes.</p>
+      <div class="table-wrap" id="table-toy"></div>
+    </section>
+
+    <section id="award">
+      <h2>Award</h2>
+      <p class="section-lead">
+        Presented at the 14th IEEE International Conference on CYBER Technology in Automation,
+        Control, and Intelligent Systems (IEEE-CYBER 2024), 16–19 July 2024, Copenhagen.
+      </p>
+      <figure class="award-figure">
+        <img
+          src="media/award-cyber-2024.png"
+          alt="IEEE-CYBER 2024 certificate: Finalist of Best Poster Award for An Adapter for Interactive Object Retrieval on the Shelf"
+        />
+        <figcaption>Finalist of Best Poster Award — IEEE-CYBER 2024.</figcaption>
+      </figure>
+    </section>
+
+    <section id="cite">
+      <h2>Paper &amp; reproduce</h2>
+      <p class="section-lead">
+        <a href="https://ieeexplore.ieee.org/document/10749016/" target="_blank" rel="noopener">IEEE Xplore</a>
+        ·
+        <a href="https://doi.org/10.1109/CYBER63482.2024.10749016" target="_blank" rel="noopener">doi:10.1109/CYBER63482.2024.10749016</a>
+        ·
+        <a href="https://ypx19.github.io/">Author homepage</a>
+      </p>
+      <pre class="code-block"><code># front demo (Detectron2, writes demos/one_take.mp4)
+.venv/bin/python scripts/run_one_take_demo.py --video demos/one_take.mp4 --seg detectron2
+
+# 4× hero clip for this page
+ffmpeg -i demos/one_take.mp4 -filter:v "setpts=0.25*PTS,fps=30" -an website/media/hero_4x.mp4
+
+# tables on this page
+.venv/bin/python scripts/run_experiments.py --out website/data/experiments.json --seeds 6
+
+python -m http.server 8000 --directory website</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://ypx19.github.io/">Peixing You</a>
+      · Interactive grasping adapter ·
+      <a href="https://ypx19.github.io/interactive-grasping/">ypx19.github.io/interactive-grasping</a>
+    </p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

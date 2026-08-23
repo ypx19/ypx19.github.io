@@ -1,0 +1,1496 @@
+{
+  "generated_unix": 1787457559,
+  "notes": "MuJoCo shelf with heuristic segmentation and heuristic grasp planner. Grasp is admitted only after the working-row gap is opened (target_pushes_required=3). Hero demo uses Detectron2 Mask R-CNN.",
+  "tables": {
+    "toy_ablation": {
+      "full": {
+        "n": 20,
+        "success_rate": 1.0,
+        "successes": 20,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 0.066
+      },
+      "no_push": {
+        "n": 20,
+        "success_rate": 0.0,
+        "successes": 0,
+        "mean_pushes_on_success": 0.0,
+        "mean_seconds": 0.014
+      },
+      "no_tmatch": {
+        "n": 20,
+        "success_rate": 1.0,
+        "successes": 20,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 0.061
+      },
+      "no_constrained": {
+        "n": 20,
+        "success_rate": 1.0,
+        "successes": 20,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 0.031
+      }
+    },
+    "scene_generalization": {
+      "library": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.718
+      },
+      "office": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.424
+      },
+      "warehouse": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.277
+      },
+      "gallery": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.238
+      }
+    },
+    "crowd_density": {
+      "n=6": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.129
+      },
+      "n=10": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.548
+      },
+      "n=14": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.753
+      },
+      "n=18": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.627
+      }
+    },
+    "mujoco_ablation": {
+      "full": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.687
+      },
+      "no_push": {
+        "n": 6,
+        "success_rate": 0.0,
+        "successes": 0,
+        "mean_pushes_on_success": 0.0,
+        "mean_seconds": 0.286
+      },
+      "no_tmatch": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.497
+      },
+      "no_mask_filter": {
+        "n": 6,
+        "success_rate": 1.0,
+        "successes": 6,
+        "mean_pushes_on_success": 3.0,
+        "mean_seconds": 1.676
+      }
+    }
+  },
+  "trials": [
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06720891688019037
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06637995899654925
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06541154091246426
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06438183388672769
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06565304193645716
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06536558386869729
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 6,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06544387503527105
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 7,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06529716704972088
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 8,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06526120798662305
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 9,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06674841581843793
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 10,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06630504108034074
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 11,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06593454186804593
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 12,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06662158411927521
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 13,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06508450000546873
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 14,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06595041695982218
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 15,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.065814791014418
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 16,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06619749986566603
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 17,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.0654084999114275
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 18,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06632254202850163
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "full",
+      "seed": 19,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.0653959580231458
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 0,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013881583930924535
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 1,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013924416853114963
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 2,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013949541840702295
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 3,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013843540800735354
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 4,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013874208088964224
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 5,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013842832995578647
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 6,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013858957914635539
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 7,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013810167089104652
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 8,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013801000081002712
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 9,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.01380120893009007
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 10,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013774457853287458
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 11,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013774374965578318
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 12,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.01383724994957447
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 13,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013981458032503724
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 14,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.01398895913735032
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 15,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013789209071546793
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 16,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013772832928225398
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 17,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013620791956782341
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 18,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013566708192229271
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_push",
+      "seed": 19,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.013782792026177049
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06118316692300141
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06122962501831353
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06109341699630022
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.0614331248216331
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.060931624844670296
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06135537498630583
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 6,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06078370800241828
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 7,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06134341610595584
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 8,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06124479090794921
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 9,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06157616712152958
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 10,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.061436125077307224
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 11,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06148795899935067
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 12,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06093270913697779
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 13,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.061628750059753656
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 14,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.06108533404767513
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 15,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.061495917150750756
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 16,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.061476374976336956
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 17,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.061613500118255615
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 18,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.061567582888528705
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_tmatch",
+      "seed": 19,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 0.061122875194996595
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030622042017057538
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03015908319503069
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03056904091499746
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03070116718299687
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030347082996740937
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030337416799739003
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 6,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.0307716669049114
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 7,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03091804194264114
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 8,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03059408301487565
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 9,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030721958028152585
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 10,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03014074987731874
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 11,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03027874999679625
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 12,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030708333011716604
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 13,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030522792134433985
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 14,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030579124810174108
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 15,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030836124904453754
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 16,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030439916998147964
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 17,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03035733290016651
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 18,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.03029075008817017
+    },
+    {
+      "suite": "toy_ablation",
+      "condition": "no_constrained",
+      "seed": 19,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.9473684210526316,
+      "seconds": 0.030432958155870438
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "library",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.8324771670158952
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "library",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6868425831198692
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "library",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6906029998790473
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "library",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.7128156668040901
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "library",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.69214424979873
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "library",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6935268340166658
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "office",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4219694999046624
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "office",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4242953748907894
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "office",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4239232919644564
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "office",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4293037501629442
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "office",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4259741669520736
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "office",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4197607501409948
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "warehouse",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.276132999919355
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "warehouse",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.269528541015461
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "warehouse",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.2898037910927087
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "warehouse",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.2698049158789217
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "warehouse",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.2849947910290211
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "warehouse",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.2727557502221316
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "gallery",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.23544591688551
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "gallery",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.2299839579500258
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "gallery",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.2413160409778357
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "gallery",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.2465794167947024
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "gallery",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.240780666936189
+    },
+    {
+      "suite": "scene_generalization",
+      "condition": "gallery",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.233052333118394
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=6",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.1287869159132242
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=6",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.1320756659843028
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=6",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.1272922079078853
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=6",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.1242300420999527
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=6",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.1309824171476066
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=6",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.1304250829853117
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=10",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.547405624995008
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=10",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.5455080000683665
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=10",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.5401619169861078
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=10",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.5566352501045913
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=10",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.5466688750311732
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=10",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.5534955838229507
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=14",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6888086250983179
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=14",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6946780839934945
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=14",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6551801250316203
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=14",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6869402080774307
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=14",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 2.1085667500738055
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=14",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6855577500537038
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=18",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6660093751270324
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=18",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6221955840010196
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=18",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6074710411485285
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=18",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.639137291815132
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=18",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.614648416871205
+    },
+    {
+      "suite": "crowd_density",
+      "condition": "n=18",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6134236250072718
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "full",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6951581668108702
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "full",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.678255165927112
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "full",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.686564875068143
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "full",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6887262500822544
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "full",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6889854171313345
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "full",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6822928751353174
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_push",
+      "seed": 0,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.28945883293636143
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_push",
+      "seed": 1,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.28071783296763897
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_push",
+      "seed": 2,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.2835252499207854
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_push",
+      "seed": 3,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.28193862503394485
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_push",
+      "seed": 4,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.2946908329613507
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_push",
+      "seed": 5,
+      "success": false,
+      "num_pushes": 0,
+      "grasp_score": 0.0,
+      "seconds": 0.2856672501657158
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_tmatch",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4979622079990804
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_tmatch",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.5026220409199595
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_tmatch",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4939502920024097
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_tmatch",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4866933750454336
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_tmatch",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.5036682090722024
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_tmatch",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.4980478340294212
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_mask_filter",
+      "seed": 0,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6709203750360757
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_mask_filter",
+      "seed": 1,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6764307089615613
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_mask_filter",
+      "seed": 2,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6739994171075523
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_mask_filter",
+      "seed": 3,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6808569999411702
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_mask_filter",
+      "seed": 4,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.686342541128397
+    },
+    {
+      "suite": "mujoco_ablation",
+      "condition": "no_mask_filter",
+      "seed": 5,
+      "success": true,
+      "num_pushes": 3,
+      "grasp_score": 0.991045622997188,
+      "seconds": 1.6650355828460306
+    }
+  ]
+}
