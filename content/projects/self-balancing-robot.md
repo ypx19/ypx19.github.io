@@ -10,9 +10,10 @@ Two-wheeled balancer built from scratch (IMU + encoder dual-loop PID), then the 
 ## Highlights
 - Cascaded angle/velocity PID on Arduino Nano firmware
 - IL clones the expert; RL learns to lean into a grade
-- Homepage front demo is a 3.6s RL-on-grade loop from the showcase film
+- Homepage front demo pairs hardware balancing with a 3.6s RL-on-grade sim loop
 
 ## Media
-- `assets/projects/self-balancing-sim-teaser.mp4` — 3.6s homepage loop (showcase 28.20–31.80s)
-- `assets/projects/self-balancing-pipeline.png` — cascaded PID diagram
+- `assets/projects/self-balancing-hw-teaser.mp4` — 3.6s hardware loop (source `self_balancing_car.mp4` @ 10.0–13.6s)
+- `assets/projects/self-balancing-sim-teaser.mp4` — 3.6s sim loop (showcase 28.20–31.80s)
+- `assets/projects/self-balancing-pipeline.png` — cascaded PID diagram (project page)
 - Full film + hardware clip: project page
