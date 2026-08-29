@@ -249,7 +249,8 @@ img {
   display: block;
   margin-top: 0.35rem;
   font-family: var(--font-hand);
-  font-size: clamp(1.45rem, 3.5vw, 2rem);
+  font-size: clamp(1.25rem, 3.2vw, 1.85rem);
+  line-height: 1.2;
   color: var(--accent);
   font-weight: 500;
 }
