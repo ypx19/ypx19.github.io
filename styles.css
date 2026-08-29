@@ -523,6 +523,10 @@ section {
   text-transform: uppercase;
 }
 
+.links .soon {
+  color: var(--ink-faint);
+}
+
 .affiliates {
   margin-top: 0.85rem;
   padding-top: 0.7rem;
