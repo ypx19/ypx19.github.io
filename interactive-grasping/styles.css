@@ -42,7 +42,36 @@ body {
 }
 .nav a { color: var(--muted); text-decoration: none; }
 .nav a:hover { color: var(--copper); }
-.nav-home { margin-left: auto; }
+.nav .btn-home {
+  margin-left: auto;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: #fffaf4;
+}
+.nav .btn-home:hover { color: #fffaf4; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--copper);
+  color: #fffaf4;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--copper);
+  box-shadow: 0 6px 16px rgba(178, 74, 22, 0.22);
+}
+.btn:hover {
+  background: #933c10;
+  border-color: #933c10;
+  color: #fffaf4;
+}
+.hero-actions { margin: 1.15rem 0 0; }
 
 .authors {
   font-family: "Cormorant Garamond", Georgia, serif;
